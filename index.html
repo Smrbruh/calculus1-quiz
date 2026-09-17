@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111827'/><text x='50' y='72' text-anchor='middle' font-family='serif' font-weight='bold' font-size='60' fill='%2300d4ff'>∫</text></svg>" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculus I Problem Generator — Unlimited practice problems for Astana IT University Calculus I course." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title>Calculus I — Problem Generator</title>
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'],['\\(','\\)']],
+      displayMath: [['$$','$$'],['\\[','\\]']]
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre']
+    },
+    startup: {
+      ready() {
+        MathJax.startup.defaultReady();
+        MathJax.startup.promise.then(() => {
+          document.dispatchEvent(new Event('mathjax-ready'));
+        });
+      }
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=YOUR_FONT_CHOICE&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body id="page-body" class="theme-dark" data-page="generator">
+  <a href="#main-content" class="skip-nav" tabindex="0">Skip to main content</a>
+  <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+  <div id="site-wrapper" class="site-wrapper">
+    <aside id="sidebar" class="sidebar" role="complementary" aria-label="Course navigation">
+      <div class="sidebar__header">
+        <div class="sidebar__logo" aria-label="Calculus I Generator">
+          <span class="sidebar__logo-icon" aria-hidden="true">∫</span>
+          <span class="sidebar__logo-text">CALC<span class="sidebar__logo-accent">GEN</span></span>
+        </div>
+        <button id="sidebar-close-btn" class="sidebar__close-btn" aria-label="Close navigation" type="button">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <nav id="main-nav" class="sidebar__nav" aria-label="Main navigation">
+        <section class="sidebar__nav-group" aria-labelledby="nav-quick-label">
+          <h2 id="nav-quick-label" class="sidebar__nav-group-title">Quick Access</h2>
+          <ul class="sidebar__nav-list" role="list">
+            <li class="sidebar__nav-item">
+              <a href="#dashboard" class="sidebar__nav-link" aria-current="page">
+                <span class="sidebar__nav-icon" aria-hidden="true">⊞</span>
+                Dashboard
+              </a>
+            </li>
+            <li class="sidebar__nav-item">
+              <a href="#generator-panel" class="sidebar__nav-link">
+                <span class="sidebar__nav-icon" aria-hidden="true">⚙</span>
+                Generator
+              </a>
+            </li>
+            <li class="sidebar__nav-item">
+              <a href="#exam-mode" class="sidebar__nav-link">
+                <span class="sidebar__nav-icon" aria-hidden="true">📝</span>
+                Exam Mode
+              </a>
+            </li>
+            <li class="sidebar__nav-item">
+              <a href="#topic-modules" class="sidebar__nav-link">
+                <span class="sidebar__nav-icon" aria-hidden="true">📚</span>
+                Topic Modules
+              </a>
+            </li>
+            <li class="sidebar__nav-item">
+              <a href="#special-problems" class="sidebar__nav-link">
+                <span class="sidebar__nav-icon" aria-hidden="true">★</span>
+                Special Types
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="sidebar__nav-group" aria-labelledby="nav-weeks-label">
+          <h2 id="nav-weeks-label" class="sidebar__nav-group-title">Weekly Modules</h2>
+          <ul class="sidebar__nav-list sidebar__nav-list--weeks" role="list">
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-1" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W1</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Functions &amp; Sets</span>
+                  <span class="sidebar__week-topics">Sets · Shifts · Scaling · Inverse · Composition · Trig</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-2" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W2</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Sequences &amp; Limits</span>
+                  <span class="sidebar__week-topics">Convergence · Monotone · Sandwich Theorem</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-3" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W3</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Limits &amp; Continuity</span>
+                  <span class="sidebar__week-topics">One-Sided · Discontinuities · IVT · Growth Rates</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-4" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W4</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Derivatives</span>
+                  <span class="sidebar__week-topics">Rules · Chain · Implicit · Parametric · Tangents</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-5" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W5</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Applications of Derivatives</span>
+                  <span class="sidebar__week-topics">Extrema · MVT · Optimization · L'Hôpital</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-6" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W6</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Integrals &amp; Substitution</span>
+                  <span class="sidebar__week-topics">Antiderivatives · Basic Formulas · u-Substitution</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-7" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W7</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Techniques of Integration</span>
+                  <span class="sidebar__week-topics">By Parts · Trig · Partial Fractions</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-8" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W8</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Definite Integrals</span>
+                  <span class="sidebar__week-topics">Riemann Sums · FTC · Improper Integrals</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-9" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge" aria-hidden="true">W9</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Applications of Integrals</span>
+                  <span class="sidebar__week-topics">Area · Volumes · Arc Length · Surfaces</span>
+                </span>
+              </a>
+            </li>
+            <li class="sidebar__nav-item sidebar__nav-item--week">
+              <a href="#week-10" class="sidebar__nav-link sidebar__week-link">
+                <span class="sidebar__week-badge sidebar__week-badge--final" aria-hidden="true">W10</span>
+                <span class="sidebar__week-content">
+                  <span class="sidebar__week-title">Complex Numbers &amp; Polar</span>
+                  <span class="sidebar__week-topics">Complex Ops · Polar Coordinates · Areas · Lengths</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+      <div class="sidebar__footer">
+        <p class="sidebar__footer-text">Astana IT University · Calculus I · 2026</p>
+        <p class="sidebar__footer-sub">Stewart, Calculus · Instructor: TBD</p>
+        <p class="sidebar__footer-sub" style="margin-top:6px; border-top:1px solid rgba(255,255,255,0.07); padding-top:6px;">
+          Made by <strong style="color:#CBD5E1;">Bakdaulet Sotsial</strong><br>
+          <a href="https://instagram.com/smrbruh" target="_blank" rel="noopener"
+             style="color:#06B6D4; text-decoration:none; font-size:0.65rem;">
+            &#x1F4F8; @smrbruh
+          </a>
+        </p>
+      </div>
+    </aside>
+    <div id="content-area" class="content-area">
+      <header id="site-header" class="site-header" role="banner">
+        <div class="site-header__left">
+          <button id="sidebar-toggle-btn" class="site-header__menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar" type="button">
+            <span class="site-header__hamburger" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+          <div class="site-header__title-block">
+            <h1 class="site-header__title">
+              <span class="site-header__title-main">Calculus I</span>
+              <span class="site-header__title-sub">Problem Generator</span>
+            </h1>
+            <p class="site-header__subtitle">Unlimited practice · Astana IT University · Spring 2026</p>
+          </div>
+        </div>
+        <div class="site-header__right">
+          <div class="site-header__session-stats" aria-label="Session statistics">
+            <div class="session-stat">
+              <span class="session-stat__value" id="header-stat-generated">0</span>
+              <span class="session-stat__label">Generated</span>
+            </div>
+            <div class="session-stat">
+              <span class="session-stat__value" id="header-stat-solved">0</span>
+              <span class="session-stat__label">Solved</span>
+            </div>
+            <div class="session-stat session-stat--streak">
+              <span class="session-stat__value" id="header-stat-streak">0</span>
+              <span class="session-stat__label">Streak</span>
+            </div>
+          </div>
+          <div class="site-header__actions">
+            <button id="theme-toggle-btn" class="site-header__action-btn" aria-label="Toggle light/dark theme" type="button">
+              <span class="theme-icon theme-icon--dark" aria-hidden="true">☾</span>
+              <span class="theme-icon theme-icon--light" aria-hidden="true">☀</span>
+            </button>
+            <button id="reset-session-btn" class="site-header__action-btn" aria-label="Reset session" type="button">
+              <span aria-hidden="true">↺</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main id="main-content" class="main-content" tabindex="-1">
+        <section id="dashboard" class="dashboard section" aria-labelledby="dashboard-title">
+          <header class="section__header">
+            <h2 id="dashboard-title" class="section__title">Dashboard</h2>
+            <p class="section__subtitle">Session overview and quick access controls</p>
+          </header>
+          <div class="dashboard__grid">
+            <article class="dashboard-card dashboard-card--generated" aria-label="Problems generated this session">
+              <div class="dashboard-card__icon" aria-hidden="true">⚡</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value" id="stat-generated">0</div>
+                <div class="dashboard-card__label">Problems Generated</div>
+              </div>
+              <div class="dashboard-card__trend" aria-label="Trend indicator" id="trend-generated"></div>
+            </article>
+            <article class="dashboard-card dashboard-card--solved" aria-label="Problems solved this session">
+              <div class="dashboard-card__icon" aria-hidden="true">✓</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value" id="stat-solved">0</div>
+                <div class="dashboard-card__label">Problems Solved</div>
+              </div>
+              <div class="dashboard-card__trend" id="trend-solved"></div>
+            </article>
+            <article class="dashboard-card dashboard-card--viewed" aria-label="Solutions viewed this session">
+              <div class="dashboard-card__icon" aria-hidden="true">👁</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value" id="stat-viewed">0</div>
+                <div class="dashboard-card__label">Solutions Viewed</div>
+              </div>
+              <div class="dashboard-card__trend" id="trend-viewed"></div>
+            </article>
+            <article class="dashboard-card dashboard-card--topic" aria-label="Currently active topic">
+              <div class="dashboard-card__icon" aria-hidden="true">📌</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value dashboard-card__value--text" id="stat-topic">—</div>
+                <div class="dashboard-card__label">Current Topic</div>
+              </div>
+              <div class="dashboard-card__meta" id="stat-topic-week"></div>
+            </article>
+            <article class="dashboard-card dashboard-card--difficulty" aria-label="Current difficulty level">
+              <div class="dashboard-card__icon" aria-hidden="true">◈</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value dashboard-card__value--text" id="stat-difficulty">Intermediate</div>
+                <div class="dashboard-card__label">Difficulty Level</div>
+              </div>
+              <div class="dashboard-card__difficulty-bar" aria-hidden="true">
+                <span class="difficulty-bar__fill" id="difficulty-bar-fill"></span>
+              </div>
+            </article>
+            <article class="dashboard-card dashboard-card--accuracy" aria-label="Session accuracy percentage">
+              <div class="dashboard-card__icon" aria-hidden="true">◎</div>
+              <div class="dashboard-card__body">
+                <div class="dashboard-card__value" id="stat-accuracy">—</div>
+                <div class="dashboard-card__label">Accuracy</div>
+              </div>
+              <div class="dashboard-card__progress-ring" aria-hidden="true">
+                <svg class="progress-ring" viewBox="0 0 36 36" role="presentation">
+                  <circle class="progress-ring__track" cx="18" cy="18" r="15" />
+                  <circle class="progress-ring__fill" id="accuracy-ring" cx="18" cy="18" r="15" />
+                </svg>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section id="generator-panel" class="generator-panel section" aria-labelledby="generator-panel-title">
+          <header class="section__header">
+            <h2 id="generator-panel-title" class="section__title">Problem Generator</h2>
+            <p class="section__subtitle">Configure and generate your next Calculus I problem</p>
+          </header>
+          <div class="generator-panel__layout">
+            <div class="generator-panel__controls">
+              <fieldset class="control-group" id="topic-selector-group">
+                <legend class="control-group__legend">Select Topic</legend>
+                <div class="topic-selector" role="group" aria-labelledby="topic-selector-label">
+                  <span id="topic-selector-label" class="visually-hidden">Available topics</span>
+                  <div class="topic-selector__week-group" data-week="1">
+                    <span class="topic-selector__week-label">Week 1</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="sets-intervals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Sets &amp; Intervals</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="functions-graphs" class="topic-chip__input" />
+                        <span class="topic-chip__label">Functions &amp; Graphs</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="shifts-scaling" class="topic-chip__input" />
+                        <span class="topic-chip__label">Shifts &amp; Scaling</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="inverse-functions" class="topic-chip__input" />
+                        <span class="topic-chip__label">Inverse Functions</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="composition-functions" class="topic-chip__input" />
+                        <span class="topic-chip__label">Composition</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="trigonometric-functions" class="topic-chip__input" />
+                        <span class="topic-chip__label">Trigonometric Functions</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="2">
+                    <span class="topic-selector__week-label">Week 2</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="sequences" class="topic-chip__input" />
+                        <span class="topic-chip__label">Sequences</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="sequence-limits" class="topic-chip__input" />
+                        <span class="topic-chip__label">Limits of Sequences</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="monotone-sequences" class="topic-chip__input" />
+                        <span class="topic-chip__label">Monotone Sequences</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="sandwich-theorem" class="topic-chip__input" />
+                        <span class="topic-chip__label">Sandwich Theorem</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="3">
+                    <span class="topic-selector__week-label">Week 3</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="one-sided-limits" class="topic-chip__input" />
+                        <span class="topic-chip__label">One-Sided Limits</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="continuity" class="topic-chip__input" />
+                        <span class="topic-chip__label">Continuity</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="discontinuities" class="topic-chip__input" />
+                        <span class="topic-chip__label">Discontinuities</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="limits-infinity" class="topic-chip__input" />
+                        <span class="topic-chip__label">Limits at Infinity</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="growth-rates" class="topic-chip__input" />
+                        <span class="topic-chip__label">Relative Growth Rates</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="4">
+                    <span class="topic-selector__week-label">Week 4</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="definition-derivative" class="topic-chip__input" />
+                        <span class="topic-chip__label">Definition of Derivative</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="differentiation-rules" class="topic-chip__input" />
+                        <span class="topic-chip__label">Differentiation Rules</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="chain-rule" class="topic-chip__input" />
+                        <span class="topic-chip__label">Chain Rule</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="implicit-diff" class="topic-chip__input" />
+                        <span class="topic-chip__label">Implicit Differentiation</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="parametric-derivatives" class="topic-chip__input" />
+                        <span class="topic-chip__label">Parametric Derivatives</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="tangents-normals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Tangents &amp; Normals</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="5">
+                    <span class="topic-selector__week-label">Week 5</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="maxima-minima" class="topic-chip__input" />
+                        <span class="topic-chip__label">Maxima &amp; Minima</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="mean-value-theorem" class="topic-chip__input" />
+                        <span class="topic-chip__label">Mean Value Theorem</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="graphing-derivatives" class="topic-chip__input" />
+                        <span class="topic-chip__label">Graphing with Derivatives</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="related-rates" class="topic-chip__input" />
+                        <span class="topic-chip__label">Related Rates</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="optimization" class="topic-chip__input" />
+                        <span class="topic-chip__label">Optimization</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="lhopitals-rule" class="topic-chip__input" />
+                        <span class="topic-chip__label">L'Hôpital's Rule</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="6">
+                    <span class="topic-selector__week-label">Week 6</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="antiderivatives" class="topic-chip__input" />
+                        <span class="topic-chip__label">Antiderivatives</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="indefinite-integrals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Indefinite Integrals</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="basic-integration-formulas" class="topic-chip__input" />
+                        <span class="topic-chip__label">Basic Integration Formulas</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="substitution" class="topic-chip__input" />
+                        <span class="topic-chip__label">Substitution (u-sub)</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="7">
+                    <span class="topic-selector__week-label">Week 7</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="integration-by-parts" class="topic-chip__input" />
+                        <span class="topic-chip__label">Integration by Parts</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="trig-integrals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Trigonometric Integrals</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="partial-fractions" class="topic-chip__input" />
+                        <span class="topic-chip__label">Partial Fractions</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="8">
+                    <span class="topic-selector__week-label">Week 8</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="riemann-sums" class="topic-chip__input" />
+                        <span class="topic-chip__label">Riemann Sums</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="definite-integrals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Definite Integrals</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="fundamental-theorem" class="topic-chip__input" />
+                        <span class="topic-chip__label">Fundamental Theorem</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="improper-integrals" class="topic-chip__input" />
+                        <span class="topic-chip__label">Improper Integrals</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="9">
+                    <span class="topic-selector__week-label">Week 9</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="area-between-curves" class="topic-chip__input" />
+                        <span class="topic-chip__label">Area Between Curves</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="volumes" class="topic-chip__input" />
+                        <span class="topic-chip__label">Volumes of Solids</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="arc-length" class="topic-chip__input" />
+                        <span class="topic-chip__label">Arc Length</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="surface-area" class="topic-chip__input" />
+                        <span class="topic-chip__label">Surface Area</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="topic-selector__week-group" data-week="10">
+                    <span class="topic-selector__week-label">Week 10</span>
+                    <div class="topic-selector__chips">
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="complex-numbers" class="topic-chip__input" />
+                        <span class="topic-chip__label">Complex Numbers</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="polar-coordinates" class="topic-chip__input" />
+                        <span class="topic-chip__label">Polar Coordinates</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="polar-graphing" class="topic-chip__input" />
+                        <span class="topic-chip__label">Graphing Polar Equations</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="polar-integration" class="topic-chip__input" />
+                        <span class="topic-chip__label">Integration in Polar</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="polar-arc-length" class="topic-chip__input" />
+                        <span class="topic-chip__label">Polar Arc Length</span>
+                      </label>
+                      <label class="topic-chip">
+                        <input type="radio" name="topic" value="final-review-mixed" class="topic-chip__input" />
+                        <span class="topic-chip__label">Comprehensive Mixed Review</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <fieldset class="control-group" id="difficulty-selector-group">
+                <legend class="control-group__legend">Difficulty Level</legend>
+                <div class="difficulty-selector" role="radiogroup" aria-labelledby="difficulty-selector-label">
+                  <span id="difficulty-selector-label" class="visually-hidden">Select difficulty</span>
+                  <label class="difficulty-option difficulty-option--easy">
+                    <input type="radio" name="difficulty" value="easy" class="difficulty-option__input" />
+                    <span class="difficulty-option__card">
+                      <span class="difficulty-option__icon" aria-hidden="true">▲</span>
+                      <span class="difficulty-option__name">Basic</span>
+                      <span class="difficulty-option__desc">Straightforward computation</span>
+                    </span>
+                  </label>
+                  <label class="difficulty-option difficulty-option--intermediate">
+                    <input type="radio" name="difficulty" value="intermediate" class="difficulty-option__input" checked />
+                    <span class="difficulty-option__card">
+                      <span class="difficulty-option__icon" aria-hidden="true">▲▲</span>
+                      <span class="difficulty-option__name">Intermediate</span>
+                      <span class="difficulty-option__desc">Exam-style problems</span>
+                    </span>
+                  </label>
+                  <label class="difficulty-option difficulty-option--hard">
+                    <input type="radio" name="difficulty" value="hard" class="difficulty-option__input" />
+                    <span class="difficulty-option__card">
+                      <span class="difficulty-option__icon" aria-hidden="true">▲▲▲</span>
+                      <span class="difficulty-option__name">Advanced</span>
+                      <span class="difficulty-option__desc">Proof-level challenges</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="control-group" id="size-options-group">
+                <legend class="control-group__legend">Problem Size</legend>
+                <div class="size-options">
+                  <label class="size-option" for="problem-size-select">Complexity</label>
+                  <select id="problem-size-select" name="problem-size" class="size-option__select" aria-label="Select problem complexity">
+                    <option value="simple">Simple (1 step)</option>
+                    <option value="medium" selected>Medium (2–3 steps)</option>
+                    <option value="complex">Complex (multi-step)</option>
+                    <option value="random">Random</option>
+                  </select>
+                  <label class="size-option" for="num-questions-select">Number of Parts</label>
+                  <select id="num-questions-select" name="num-questions" class="size-option__select" aria-label="Number of sub-parts">
+                    <option value="1">1 part</option>
+                    <option value="2">2 parts (a, b)</option>
+                    <option value="3" selected>3 parts (a, b, c)</option>
+                    <option value="4">4 parts (a, b, c, d)</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="control-group" id="exam-mode-selector-group">
+                <legend class="control-group__legend">Exam Mode</legend>
+                <div class="exam-mode-selector">
+                  <label class="exam-mode-option">
+                    <input type="radio" name="exam-mode" value="practice" class="exam-mode-option__input" checked />
+                    <span class="exam-mode-option__label">Practice Mode</span>
+                    <span class="exam-mode-option__desc">See hints and solutions freely</span>
+                  </label>
+                  <label class="exam-mode-option">
+                    <input type="radio" name="exam-mode" value="timed" class="exam-mode-option__input" />
+                    <span class="exam-mode-option__label">Timed Mode</span>
+                    <span class="exam-mode-option__desc">Simulate exam conditions</span>
+                  </label>
+                  <label class="exam-mode-option">
+                    <input type="radio" name="exam-mode" value="blind" class="exam-mode-option__input" />
+                    <span class="exam-mode-option__label">Blind Mode</span>
+                    <span class="exam-mode-option__desc">No hints, solutions locked</span>
+                  </label>
+                </div>
+              </fieldset>
+              <div class="generator-panel__actions" role="group" aria-label="Generator actions">
+                <button id="generate-btn" class="action-btn action-btn--primary action-btn--generate" type="button" aria-label="Generate a new problem" aria-live="polite">
+                  <span class="action-btn__icon" aria-hidden="true">⚡</span>
+                  <span class="action-btn__text">Generate Problem</span>
+                </button>
+                <button id="generate-similar-btn" class="action-btn action-btn--secondary" type="button" aria-label="Generate a similar problem to the current one">
+                  <span class="action-btn__icon" aria-hidden="true">⊕</span>
+                  <span class="action-btn__text">Generate Similar</span>
+                </button>
+                <button id="reset-btn" class="action-btn action-btn--ghost action-btn--reset" type="button" aria-label="Reset all generator settings">
+                  <span class="action-btn__icon" aria-hidden="true">↺</span>
+                  <span class="action-btn__text">Reset</span>
+                </button>
+              </div>
+            </div>
+            <aside class="generator-panel__sidebar" aria-label="Generator information and tips">
+              <div class="generator-info-card" id="generator-info-card">
+                <header class="generator-info-card__header">
+                  <h3 class="generator-info-card__title" id="info-card-topic-name">Select a Topic</h3>
+                  <span class="generator-info-card__week" id="info-card-week-label"></span>
+                </header>
+                <div class="generator-info-card__body">
+                  <p class="generator-info-card__deion" id="info-card-deion">
+                    Choose a topic from the left panel. A problem will be generated based on your course materials.
+                  </p>
+                  <ul class="generator-info-card__key-concepts" id="info-card-key-concepts" aria-label="Key concepts for selected topic">
+                  </ul>
+                </div>
+                <footer class="generator-info-card__footer">
+                  <div class="generator-info-card__textbook" id="info-card-textbook">
+                    <span class="info-card-textbook__label">Stewart, Calculus</span>
+                    <span class="info-card-textbook__section" id="info-card-section"></span>
+                  </div>
+                </footer>
+              </div>
+              <div class="recent-history" aria-labelledby="recent-history-label">
+                <h3 id="recent-history-label" class="recent-history__title">Recent Problems</h3>
+                <ol class="recent-history__list" id="recent-history-list" aria-label="Recently generated problems">
+                  <li class="recent-history__empty" id="recent-history-empty">No problems yet — generate your first one!</li>
+                </ol>
+              </div>
+            </aside>
+          </div>
+        </section>
+        <section id="problem-display" class="problem-display section" aria-labelledby="problem-display-title" aria-live="polite" aria-atomic="false">
+          <header class="section__header problem-display__header">
+            <div class="problem-display__header-left">
+              <h2 id="problem-display-title" class="section__title">Generated Problem</h2>
+              <div class="problem-display__meta" id="problem-meta" aria-label="Problem metadata">
+                <span class="problem-meta__topic" id="problem-meta-topic"></span>
+                <span class="problem-meta__week" id="problem-meta-week"></span>
+                <span class="problem-meta__difficulty" id="problem-meta-difficulty"></span>
+                <span class="problem-meta__points" id="problem-meta-points"></span>
+              </div>
+            </div>
+            <div class="problem-display__header-right">
+              <div class="problem-display__timer" id="problem-timer" aria-live="off" aria-label="Elapsed time" hidden>
+                <span class="problem-timer__display" id="timer-display">00:00</span>
+                <button id="timer-pause-btn" class="timer-btn" aria-label="Pause timer" type="button">⏸</button>
+              </div>
+              <div class="problem-display__actions">
+                <button id="copy-problem-btn" class="icon-btn" aria-label="Copy problem to clipboard" type="button">
+                  <span aria-hidden="true">⊡</span>
+                </button>
+                <button id="bookmark-btn" class="icon-btn" aria-label="Bookmark this problem" type="button">
+                  <span aria-hidden="true">☆</span>
+                </button>
+                <button id="report-btn" class="icon-btn" aria-label="Report an issue with this problem" type="button">
+                  <span aria-hidden="true">⚑</span>
+                </button>
+              </div>
+            </div>
+          </header>
+          <div class="problem-display__empty-state" id="problem-empty-state" aria-hidden="false">
+            <div class="empty-state__icon" aria-hidden="true">∫</div>
+            <p class="empty-state__message">Your generated problem will appear here.</p>
+            <p class="empty-state__sub">Select a topic and click <strong>Generate Problem</strong> to begin.</p>
+          </div>
+          <article class="problem-display__content" id="problem-content" aria-hidden="true">
+            <div class="problem-instructions" id="problem-instructions">
+              <p class="problem-instructions__text" id="problem-instructions-text"></p>
+            </div>
+            <div class="problem-parts" id="problem-parts">
+              <div class="problem-part" id="problem-part-a" data-part="a" role="region" aria-labelledby="part-a-label">
+                <h3 class="problem-part__label" id="part-a-label">
+                  <span class="problem-part__letter" aria-label="Part A">(a)</span>
+                  <span class="problem-part__points" id="part-a-points"></span>
+                </h3>
+                <div class="problem-part__body" id="part-a-body">
+                  <div class="math-content" id="part-a-math" aria-label="Mathematical content for part A">
+                  </div>
+                  <figure class="problem-figure" id="part-a-figure" aria-labelledby="part-a-figure-caption">
+                    <div class="problem-figure__canvas" id="part-a-canvas" aria-label="Geometric figure">
+                    </div>
+                    <figcaption id="part-a-figure-caption" class="problem-figure__caption"></figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="problem-part" id="problem-part-b" data-part="b" role="region" aria-labelledby="part-b-label">
+                <h3 class="problem-part__label" id="part-b-label">
+                  <span class="problem-part__letter" aria-label="Part B">(b)</span>
+                  <span class="problem-part__points" id="part-b-points"></span>
+                </h3>
+                <div class="problem-part__body" id="part-b-body">
+                  <div class="math-content" id="part-b-math" aria-label="Mathematical content for part B"></div>
+                  <figure class="problem-figure" id="part-b-figure" aria-labelledby="part-b-figure-caption">
+                    <div class="problem-figure__canvas" id="part-b-canvas" aria-label="Geometric figure"></div>
+                    <figcaption id="part-b-figure-caption" class="problem-figure__caption"></figcaption>
+                  </figure>
+                </div>
+              </div>
+              <div class="problem-part" id="problem-part-c" data-part="c" role="region" aria-labelledby="part-c-label">
+                <h3 class="problem-part__label" id="part-c-label">
+                  <span class="problem-part__letter" aria-label="Part C">(c)</span>
+                  <span class="problem-part__points" id="part-c-points"></span>
+                </h3>
+                <div class="problem-part__body" id="part-c-body">
+                  <div class="math-content" id="part-c-math" aria-label="Mathematical content for part C"></div>
+                </div>
+              </div>
+              <div class="problem-part" id="problem-part-d" data-part="d" role="region" aria-labelledby="part-d-label">
+                <h3 class="problem-part__label" id="part-d-label">
+                  <span class="problem-part__letter" aria-label="Part D">(d)</span>
+                  <span class="problem-part__points" id="part-d-points"></span>
+                </h3>
+                <div class="problem-part__body" id="part-d-body">
+                  <div class="math-content" id="part-d-math" aria-label="Mathematical content for part D"></div>
+                </div>
+              </div>
+            </div>
+            <div class="work-area" id="work-area" aria-labelledby="work-area-label">
+              <h3 id="work-area-label" class="work-area__label">Your Work</h3>
+              <div class="work-area__input-region" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Write your solution here" id="student-work-input" spellcheck="false">
+              </div>
+              <div class="work-area__toolbar" role="toolbar" aria-label="Work area toolbar">
+                <button class="work-area__tool-btn" aria-label="Clear work area" id="clear-work-btn" type="button">Clear</button>
+                <button class="work-area__tool-btn" aria-label="Mark as solved" id="mark-solved-btn" type="button">Mark Solved ✓</button>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section id="solution-area" class="solution-area section" aria-labelledby="solution-area-title" aria-live="polite">
+          <header class="section__header solution-area__header">
+            <h2 id="solution-area-title" class="section__title">Solution</h2>
+            <div class="solution-area__controls">
+              <button id="reveal-solution-btn" class="action-btn action-btn--solution" type="button" aria-expanded="false" aria-controls="solution-content">
+                <span class="action-btn__icon" aria-hidden="true">👁</span>
+                <span class="action-btn__text">Show Solution</span>
+              </button>
+              <button id="reveal-answer-only-btn" class="action-btn action-btn--ghost" type="button" aria-expanded="false" aria-controls="solution-final-answer">
+                <span class="action-btn__text">Answer Only</span>
+              </button>
+            </div>
+          </header>
+          <div class="solution-content" id="solution-content" aria-hidden="true">
+            <div class="solution-final-answer" id="solution-final-answer" aria-labelledby="final-answer-label">
+              <h3 id="final-answer-label" class="solution-block__title solution-block__title--answer">Final Answer</h3>
+              <div class="solution-answer-box">
+                <div class="math-content" id="solution-answer-math" aria-label="Final answer in mathematical notation">
+                </div>
+              </div>
+            </div>
+            <div class="solution-steps" id="solution-steps" aria-labelledby="steps-label">
+              <h3 id="steps-label" class="solution-block__title">Step-by-Step Solution</h3>
+              <ol class="solution-steps__list" id="solution-steps-list" aria-label="Solution steps">
+              </ol>
+            </div>
+            <div class="solution-theory" id="solution-theory" aria-labelledby="theory-label">
+              <h3 id="theory-label" class="solution-block__title">Theory &amp; Definitions Used</h3>
+              <div class="solution-theory__body" id="solution-theory-body">
+              </div>
+            </div>
+            <div class="solution-mistakes" id="solution-mistakes" aria-labelledby="mistakes-label">
+              <h3 id="mistakes-label" class="solution-block__title solution-block__title--warning">Common Mistakes</h3>
+              <ul class="solution-mistakes__list" id="solution-mistakes-list" aria-label="Common mistakes to avoid">
+              </ul>
+            </div>
+            <div class="solution-related" id="solution-related" aria-labelledby="related-label">
+              <h3 id="related-label" class="solution-block__title">Practice More</h3>
+              <div class="solution-related__suggestions" id="solution-related-suggestions">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="special-problems" class="special-problems section" aria-labelledby="special-problems-title">
+          <header class="section__header">
+            <h2 id="special-problems-title" class="section__title">Problem Types</h2>
+            <p class="section__subtitle">Dedicated generators for common calculus problem structures</p>
+          </header>
+          <div class="special-problems__grid">
+            <article class="special-card" id="special-limit-problems" aria-labelledby="special-limit-title">
+              <header class="special-card__header">
+                <h3 id="special-limit-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">→</span> Limit Problems
+                </h3>
+                <span class="special-card__badge">Weeks 2–3</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">One-sided limits, infinite limits, limits at infinity, indeterminate forms, Sandwich theorem.</p>
+                <div class="special-card__options" role="group" aria-label="Limit problem sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="limit-sub" value="one-sided" class="special-chip__input" />
+                    <span class="special-chip__label">One-Sided</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="limit-sub" value="infinite" class="special-chip__input" />
+                    <span class="special-chip__label">Infinite Limits</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="limit-sub" value="sandwich" class="special-chip__input" />
+                    <span class="special-chip__label">Sandwich Theorem</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="limit-sub" value="indeterminate" class="special-chip__input" />
+                    <span class="special-chip__label">Indeterminate Forms</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-limit-btn" aria-label="Generate limit problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card" id="special-derivative-problems" aria-labelledby="special-deriv-title">
+              <header class="special-card__header">
+                <h3 id="special-deriv-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">d/dx</span> Derivative Problems
+                </h3>
+                <span class="special-card__badge">Week 4</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">Power rule, product, quotient, chain rule, implicit differentiation, higher order derivatives.</p>
+                <div class="special-card__options" role="group" aria-label="Derivative problem sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="deriv-sub" value="basic" class="special-chip__input" />
+                    <span class="special-chip__label">Basic Rules</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="deriv-sub" value="chain" class="special-chip__input" />
+                    <span class="special-chip__label">Chain Rule</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="deriv-sub" value="implicit" class="special-chip__input" />
+                    <span class="special-chip__label">Implicit</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="deriv-sub" value="parametric" class="special-chip__input" />
+                    <span class="special-chip__label">Parametric</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-derivative-btn" aria-label="Generate derivative problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card" id="special-integral-problems" aria-labelledby="special-int-title">
+              <header class="special-card__header">
+                <h3 id="special-int-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">∫</span> Integral Problems
+                </h3>
+                <span class="special-card__badge">Weeks 6–8</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">Indefinite, definite, substitution, by parts, trig integrals, partial fractions, improper integrals.</p>
+                <div class="special-card__options" role="group" aria-label="Integral problem sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="int-sub" value="substitution" class="special-chip__input" />
+                    <span class="special-chip__label">u-Substitution</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="int-sub" value="byparts" class="special-chip__input" />
+                    <span class="special-chip__label">By Parts</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="int-sub" value="trig" class="special-chip__input" />
+                    <span class="special-chip__label">Trig Integrals</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="int-sub" value="partial" class="special-chip__input" />
+                    <span class="special-chip__label">Partial Fractions</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="int-sub" value="improper" class="special-chip__input" />
+                    <span class="special-chip__label">Improper</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-integral-btn" aria-label="Generate integral problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card" id="special-application-problems" aria-labelledby="special-app-title">
+              <header class="special-card__header">
+                <h3 id="special-app-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">📐</span> Application Problems
+                </h3>
+                <span class="special-card__badge">Weeks 5, 9</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">Optimization, related rates, area between curves, volumes, arc length, surface area.</p>
+                <div class="special-card__options" role="group" aria-label="Application sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="app-sub" value="optimization" class="special-chip__input" />
+                    <span class="special-chip__label">Optimization</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="app-sub" value="related-rates" class="special-chip__input" />
+                    <span class="special-chip__label">Related Rates</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="app-sub" value="area" class="special-chip__input" />
+                    <span class="special-chip__label">Area Between Curves</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="app-sub" value="volume" class="special-chip__input" />
+                    <span class="special-chip__label">Volumes</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-application-btn" aria-label="Generate application problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card" id="special-polar-problems" aria-labelledby="special-polar-title">
+              <header class="special-card__header">
+                <h3 id="special-polar-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">θ</span> Polar &amp; Complex Problems
+                </h3>
+                <span class="special-card__badge">Week 10</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">Complex arithmetic, polar graphing, area and arc length in polar coordinates, surface area.</p>
+                <div class="special-card__options" role="group" aria-label="Polar sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="polar-sub" value="complex" class="special-chip__input" />
+                    <span class="special-chip__label">Complex Numbers</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="polar-sub" value="graphing" class="special-chip__input" />
+                    <span class="special-chip__label">Polar Graphing</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="polar-sub" value="area-polar" class="special-chip__input" />
+                    <span class="special-chip__label">Polar Area</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="polar-sub" value="length-polar" class="special-chip__input" />
+                    <span class="special-chip__label">Polar Arc Length</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-polar-btn" aria-label="Generate polar problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card" id="special-theorem-problems" aria-labelledby="special-theorem-title">
+              <header class="special-card__header">
+                <h3 id="special-theorem-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">∴</span> Theorem Problems
+                </h3>
+                <span class="special-card__badge">Weeks 3, 5, 8</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">IVT, MVT, FTC — verify hypotheses, find guaranteed values, apply theorems to specific functions.</p>
+                <div class="special-card__options" role="group" aria-label="Theorem sub-types">
+                  <label class="special-chip">
+                    <input type="checkbox" name="theorem-sub" value="ivt" class="special-chip__input" />
+                    <span class="special-chip__label">Intermediate Value</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="theorem-sub" value="mvt" class="special-chip__input" />
+                    <span class="special-chip__label">Mean Value</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="theorem-sub" value="rolle" class="special-chip__input" />
+                    <span class="special-chip__label">Rolle's Theorem</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="theorem-sub" value="ftc" class="special-chip__input" />
+                    <span class="special-chip__label">Fundamental Theorem</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special" type="button" id="gen-theorem-btn" aria-label="Generate theorem problem">
+                  Generate
+                </button>
+              </footer>
+            </article>
+            <article class="special-card special-card--mixed" id="special-mixed-problems" aria-labelledby="special-mixed-title">
+              <header class="special-card__header">
+                <h3 id="special-mixed-title" class="special-card__title">
+                  <span class="special-card__icon" aria-hidden="true">∞</span> Mixed Final Exam Problems
+                </h3>
+                <span class="special-card__badge special-card__badge--final">Week 10</span>
+              </header>
+              <div class="special-card__body">
+                <p class="special-card__desc">Randomly combined problems from all topics — true exam simulation from course materials.</p>
+                <div class="special-card__options" role="group" aria-label="Mixed problem options">
+                  <label class="special-chip">
+                    <input type="checkbox" name="mixed-sub" value="limits-cont" class="special-chip__input" checked />
+                    <span class="special-chip__label">Limits &amp; Continuity</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="mixed-sub" value="derivatives" class="special-chip__input" checked />
+                    <span class="special-chip__label">Derivatives</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="mixed-sub" value="integrals" class="special-chip__input" checked />
+                    <span class="special-chip__label">Integrals</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="mixed-sub" value="applications" class="special-chip__input" checked />
+                    <span class="special-chip__label">Applications</span>
+                  </label>
+                  <label class="special-chip">
+                    <input type="checkbox" name="mixed-sub" value="polar" class="special-chip__input" checked />
+                    <span class="special-chip__label">Polar &amp; Complex</span>
+                  </label>
+                </div>
+              </div>
+              <footer class="special-card__footer">
+                <button class="action-btn action-btn--special action-btn--mixed" type="button" id="gen-mixed-btn" aria-label="Generate mixed problem">
+                  Generate Mixed
+                </button>
+              </footer>
+            </article>
+          </div>
+        </section>
+        <section id="exam-mode" class="exam-mode section" aria-labelledby="exam-mode-title">
+          <header class="section__header">
+            <h2 id="exam-mode-title" class="section__title">Mock Final Exam Generator</h2>
+            <p class="section__subtitle">
+              Simulate the AITU Calculus I written exam — 70 pts / 100 min format (Stewart, Calculus)
+            </p>
+          </header>
+          <div class="exam-mode__layout">
+            <div class="exam-config" aria-labelledby="exam-config-label">
+              <h3 id="exam-config-label" class="exam-config__title">Exam Configuration</h3>
+              <fieldset class="control-group" id="exam-length-group">
+                <legend class="control-group__legend">Number of Questions</legend>
+                <div class="exam-length-selector" role="group" aria-labelledby="exam-length-label">
+                  <span id="exam-length-label" class="visually-hidden">Select exam length</span>
+                  <label class="exam-length-option">
+                    <input type="radio" name="exam-length" value="10" class="exam-length-option__input" />
+                    <span class="exam-length-option__card">
+                      <span class="exam-length-option__num">10</span>
+                      <span class="exam-length-option__label">Quick Practice</span>
+                      <span class="exam-length-option__time">~40 min</span>
+                    </span>
+                  </label>
+                  <label class="exam-length-option">
+                    <input type="radio" name="exam-length" value="20" class="exam-length-option__input" checked />
+                    <span class="exam-length-option__card">
+                      <span class="exam-length-option__num">20</span>
+                      <span class="exam-length-option__label">Half Exam</span>
+                      <span class="exam-length-option__time">~70 min</span>
+                    </span>
+                  </label>
+                  <label class="exam-length-option">
+                    <input type="radio" name="exam-length" value="30" class="exam-length-option__input" />
+                    <span class="exam-length-option__card">
+                      <span class="exam-length-option__num">30</span>
+                      <span class="exam-length-option__label">Full Simulation</span>
+                      <span class="exam-length-option__time">~100 min</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset class="control-group" id="exam-topics-group">
+                <legend class="control-group__legend">Topic Coverage</legend>
+                <div class="exam-topics-options" role="group" aria-labelledby="exam-topics-label">
+                  <span id="exam-topics-label" class="visually-hidden">Exam topic coverage</span>
+                  <label class="exam-topic-option">
+                    <input type="radio" name="exam-coverage" value="all" class="exam-topic-option__input" checked />
+                    <span class="exam-topic-option__label">All 10 Weeks</span>
+                  </label>
+                  <label class="exam-topic-option">
+                    <input type="radio" name="exam-coverage" value="first-half" class="exam-topic-option__input" />
+                    <span class="exam-topic-option__label">Weeks 1–5 (Midterm)</span>
+                  </label>
+                  <label class="exam-topic-option">
+                    <input type="radio" name="exam-coverage" value="second-half" class="exam-topic-option__input" />
+                    <span class="exam-topic-option__label">Weeks 6–10 (Endterm)</span>
+                  </label>
+                  <label class="exam-topic-option">
+                    <input type="radio" name="exam-coverage" value="custom" class="exam-topic-option__input" />
+                    <span class="exam-topic-option__label">Custom Selection</span>
+                  </label>
+                </div>
+              </fieldset>
+              <div class="exam-options" role="group" aria-labelledby="exam-options-label">
+                <h4 id="exam-options-label" class="exam-options__title">Exam Options</h4>
+                <label class="toggle-option">
+                  <input type="checkbox" id="exam-timed-mode" name="exam-timed" class="toggle-option__input" />
+                  <span class="toggle-option__slider" aria-hidden="true"></span>
+                  <span class="toggle-option__label">Timed Mode (100 minutes)</span>
+                </label>
+                <label class="toggle-option">
+                  <input type="checkbox" id="exam-show-points" name="exam-points" class="toggle-option__input" checked />
+                  <span class="toggle-option__slider" aria-hidden="true"></span>
+                  <span class="toggle-option__label">Show Point Values</span>
+                </label>
+                <label class="toggle-option">
+                  <input type="checkbox" id="exam-lock-solutions" name="exam-lock" class="toggle-option__input" />
+                  <span class="toggle-option__slider" aria-hidden="true"></span>
+                  <span class="toggle-option__label">Lock Solutions Until Submission</span>
+                </label>
+                <label class="toggle-option">
+                  <input type="checkbox" id="exam-shuffle" name="exam-shuffle" class="toggle-option__input" />
+                  <span class="toggle-option__slider" aria-hidden="true"></span>
+                  <span class="toggle-option__label">Shuffle Question Order</span>
+                </label>
+              </div>
+              <div class="exam-config__action">
+                <button id="generate-exam-btn" class="action-btn action-btn--primary action-btn--exam" type="button" aria-label="Generate mock final exam">
+                  <span class="action-btn__icon" aria-hidden="true">📝</span>
+                  <span class="action-btn__text">Generate Mock Exam</span>
+                </button>
+                <button id="download-exam-pdf-btn" class="action-btn action-btn--ghost" type="button" aria-label="Download exam as PDF" disabled>
+                  <span class="action-btn__icon" aria-hidden="true">⬇</span>
+                  <span class="action-btn__text">Download as PDF</span>
+                </button>
+              </div>
+            </div>
+            <div class="exam-paper" id="exam-paper" aria-labelledby="exam-paper-title" aria-live="polite">
+              <div class="exam-paper__header" id="exam-paper-header" aria-hidden="true">
+                <div class="exam-paper__institution">Astana IT University</div>
+                <div class="exam-paper__department">School of Artificial Intelligence and Data Science</div>
+                <div class="exam-paper__course">Discipline: Calculus I</div>
+                <div class="exam-paper__meta-row">
+                  <span class="exam-paper__meta-item" id="exam-meta-variant">Mock Exam — Practice</span>
+                  <span class="exam-paper__meta-item" id="exam-meta-duration">Duration: 100 minutes</span>
+                  <span class="exam-paper__meta-item" id="exam-meta-points">Total: 70 points</span>
+                </div>
+                <div class="exam-paper__student-info">
+                  <label class="exam-paper__student-field">
+                    Student's name: <span class="exam-paper__field-line" id="exam-student-name" contenteditable="true" role="textbox" aria-label="Student name">___________________________</span>
+                  </label>
+                  <label class="exam-paper__student-field">
+                    Group: <span class="exam-paper__field-line" id="exam-student-group" contenteditable="true" role="textbox" aria-label="Student group">___________</span>
+                  </label>
+                </div>
+                <p class="exam-paper__instructions">
+                  <em>Instructions: Show all your work in the space provided below each problem. Partial credit will be given for correct method even if the final answer contains an arithmetic error.</em>
+                </p>
+              </div>
+              <div class="exam-timer-bar" id="exam-timer-bar" hidden aria-live="assertive">
+                <span class="exam-timer-bar__label">Time Remaining:</span>
+                <span class="exam-timer-bar__display" id="exam-timer-display" aria-live="off">1:40:00</span>
+                <div class="exam-timer-bar__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="exam-timer-progress">
+                  <div class="exam-timer-bar__fill" id="exam-timer-fill"></div>
+                </div>
+                <button class="exam-timer-btn" id="exam-timer-pause-btn" type="button" aria-label="Pause exam timer">⏸</button>
+              </div>
+              <div class="exam-score-grid" id="exam-score-grid" hidden aria-label="Score tracking table">
+                <table class="score-grid-table" role="grid" aria-label="Problem scores">
+                  <thead>
+                    <tr>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exam-paper__empty" id="exam-paper-empty">
+                <div class="empty-state__icon" aria-hidden="true">📋</div>
+                <p class="empty-state__message">Your mock exam will appear here.</p>
+                <p class="empty-state__sub">Configure the exam options and click <strong>Generate Mock Exam</strong>.</p>
+              </div>
+              <ol class="exam-problems-list" id="exam-problems-list" aria-label="Exam problems" hidden>
+              </ol>
+              <div class="exam-solutions" id="exam-solutions" hidden aria-labelledby="exam-solutions-label">
+                <h3 id="exam-solutions-label" class="exam-solutions__title">Answer Key &amp; Solutions</h3>
+                <div class="exam-solutions__body" id="exam-solutions-body" aria-live="polite">
+                </div>
+                <div class="exam-solutions__actions">
+                  <button class="action-btn action-btn--primary" id="reveal-all-solutions-btn" type="button">
+                    Reveal All Solutions
+                  </button>
+                  <button class="action-btn action-btn--ghost" id="new-exam-btn" type="button">
+                    Generate New Exam
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="topic-modules" class="topic-modules section" aria-labelledby="topic-modules-title">
+          <header class="section__header">
+            <h2 id="topic-modules-title" class="section__title">Topic Modules</h2>
+            <p class="section__subtitle">Deep-dive into each week of the course with targeted practice</p>
+          </header>
+          <article id="week-1" class="week-module" data-week="1" aria-labelledby="week-1-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">01</div>
+              <div class="week-module__title-block">
+                <h3 id="week-1-title" class="week-module__title">Functions &amp; Sets</h3>
+                <p class="week-module__topics-summary">Sets · Intervals · Function Graphs · Shifts · Scaling · Inverse Functions · Composition · Trigonometric Functions</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-1-body" aria-label="Expand Week 1 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-1-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-1-info-label">
+                <h4 id="week-1-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Set operations:</span>
+                      <span class="concept-list__desc math-content">union, intersection, difference, Cartesian product</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Intervals:</span>
+                      <span class="concept-list__desc">open $(a,b)$, closed $[a,b]$, half-open, infinite</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Function definition: domain, codomain, range</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Even / odd functions; vertical line test</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Graph transformations:</span>
+                      <span class="concept-list__desc">shifts, scaling, reflections</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Inverse functions:</span>
+                      <span class="concept-list__desc">$f^{-1}(y) = x \iff f(x) = y$</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Composition: $(f \circ g)(x) = f(g(x))$</span>
+                    </li>
+                    <li class="concept-list__item">
+                      <span class="concept-list__term">Trigonometric identities and inverse trig functions</span>
+                    </li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§1.1–1.5, Appendix D</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-1-gen-label">
+                <h4 id="week-1-gen-label" class="week-module__section-title">Generate Week 1 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w1-topic-select" name="w1-topic" aria-label="Week 1 topic">
+                    <option value="set-ops">Set Operations</option>
+                    <option value="interval">Interval Notation</option>
+                    <option value="domain-range">Domain &amp; Range</option>
+                    <option value="even-odd">Even/Odd Function</option>
+                    <option value="shifts">Graph Shifts</option>
+                    <option value="scaling">Graph Scaling</option>
+                    <option value="inverse">Find Inverse Function</option>
+                    <option value="composition">Composition</option>
+                    <option value="trig-identities">Trigonometric Identities</option>
+                    <option value="inverse-trig">Inverse Trig Values</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w1-diff-select" name="w1-difficulty" aria-label="Difficulty for week 1">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week1-btn" aria-label="Generate Week 1 problem">
+                    Generate
+                  </button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-1-exercises" aria-labelledby="week-1-exercises-label" aria-live="polite">
+                <h4 id="week-1-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-1-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 1.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-1-solutions" aria-labelledby="week-1-solutions-label" aria-live="polite">
+                <h4 id="week-1-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-1-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-2" class="week-module" data-week="2" aria-labelledby="week-2-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">02</div>
+              <div class="week-module__title-block">
+                <h3 id="week-2-title" class="week-module__title">Sequences &amp; Limits</h3>
+                <p class="week-module__topics-summary">Convergence · Properties of Convergent Sequences · Monotone Sequences · Limits of Functions · Sandwich Theorem</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-2-body" aria-label="Expand Week 2 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-2-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-2-info-label">
+                <h4 id="week-2-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Sequence definition: $\{a_n\}$ indexed by $n \in \mathbb{N}$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Convergence: $\lim_{n \to \infty} a_n = L$ (epsilon-N definition)</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Algebraic Limit Theorem for sequences</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Bounded and monotone sequences</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Monotone Convergence Theorem</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Limit of a function at a point: $\epsilon$-$\delta$ definition</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Squeeze Theorem for functions</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§2.1, §2.2, §2.3, §11.1</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-2-gen-label">
+                <h4 id="week-2-gen-label" class="week-module__section-title">Generate Week 2 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w2-topic-select" name="w2-topic" aria-label="Week 2 topic">
+                    <option value="seq-convergence">Sequence Convergence</option>
+                    <option value="seq-limit-compute">Compute Sequence Limit</option>
+                    <option value="monotone">Monotone Sequence Test</option>
+                    <option value="limit-function">Limit of a Function</option>
+                    <option value="sandwich">Sandwich Theorem</option>
+                    <option value="epsilon-delta">Epsilon-Delta Proof</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w2-diff-select" name="w2-difficulty" aria-label="Difficulty for week 2">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week2-btn" aria-label="Generate Week 2 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-2-exercises" aria-labelledby="week-2-exercises-label" aria-live="polite">
+                <h4 id="week-2-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-2-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 2.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-2-solutions" aria-labelledby="week-2-solutions-label" aria-live="polite">
+                <h4 id="week-2-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-2-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-3" class="week-module" data-week="3" aria-labelledby="week-3-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">03</div>
+              <div class="week-module__title-block">
+                <h3 id="week-3-title" class="week-module__title">Limits &amp; Continuity</h3>
+                <p class="week-module__topics-summary">One-Sided Limits · Continuous Functions · Discontinuities · Limits Involving Infinity · Relative Rates of Growth</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-3-body" aria-label="Expand Week 3 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-3-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-3-info-label">
+                <h4 id="week-3-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">One-sided limits: $\lim_{x \to a^-}$, $\lim_{x \to a^+}$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Continuity at a point: three conditions</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Types: removable, jump, infinite, oscillating</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Intermediate Value Theorem (IVT)</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Horizontal &amp; vertical asymptotes</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Limits at infinity for rational functions</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Growth hierarchy: $\ln x \ll x^p \ll b^x \ll x^x$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Asymptotic equivalences (table of equivalents)</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§2.4, §2.5, §2.6, §2.7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-3-gen-label">
+                <h4 id="week-3-gen-label" class="week-module__section-title">Generate Week 3 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w3-topic-select" name="w3-topic" aria-label="Week 3 topic">
+                    <option value="one-sided">One-Sided Limits</option>
+                    <option value="continuity">Continuity Check</option>
+                    <option value="discontinuity">Classify Discontinuity</option>
+                    <option value="ivt">Intermediate Value Theorem</option>
+                    <option value="asymptote">Find Asymptotes</option>
+                    <option value="limits-infinity">Limit at Infinity</option>
+                    <option value="growth">Compare Growth Rates</option>
+                    <option value="equivalent">Asymptotic Equivalence</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w3-diff-select" name="w3-difficulty" aria-label="Difficulty for week 3">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week3-btn" aria-label="Generate Week 3 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-3-exercises" aria-labelledby="week-3-exercises-label" aria-live="polite">
+                <h4 id="week-3-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-3-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 3.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-3-solutions" aria-labelledby="week-3-solutions-label" aria-live="polite">
+                <h4 id="week-3-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-3-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-4" class="week-module" data-week="4" aria-labelledby="week-4-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">04</div>
+              <div class="week-module__title-block">
+                <h3 id="week-4-title" class="week-module__title">Derivatives</h3>
+                <p class="week-module__topics-summary">Definition · Rules · Chain Rule · Implicit Differentiation · Higher Order · Parametric · Tangents &amp; Normals</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-4-body" aria-label="Expand Week 4 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-4-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-4-info-label">
+                <h4 id="week-4-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Definition: $f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Power, product, quotient rules</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Chain rule: $\frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Derivatives of trig, exponential, log, inverse trig</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Implicit differentiation</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Linearization: $L(x) = f(a) + f'(a)(x-a)$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Parametric derivatives: $\frac{dy}{dx} = \frac{dy/dt}{dx/dt}$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Tangent and normal lines</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§3.1–3.6, §3.8, §3.9</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-4-gen-label">
+                <h4 id="week-4-gen-label" class="week-module__section-title">Generate Week 4 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w4-topic-select" name="w4-topic" aria-label="Week 4 topic">
+                    <option value="def-derivative">Definition of Derivative</option>
+                    <option value="power-rule">Power / Product / Quotient</option>
+                    <option value="chain-rule">Chain Rule</option>
+                    <option value="trig-deriv">Trig Derivatives</option>
+                    <option value="exp-log-deriv">Exp / Log Derivatives</option>
+                    <option value="implicit">Implicit Differentiation</option>
+                    <option value="higher-order">Higher Order</option>
+                    <option value="parametric">Parametric Derivative</option>
+                    <option value="tangent-normal">Tangent &amp; Normal Line</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w4-diff-select" name="w4-difficulty" aria-label="Difficulty for week 4">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week4-btn" aria-label="Generate Week 4 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-4-exercises" aria-labelledby="week-4-exercises-label" aria-live="polite">
+                <h4 id="week-4-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-4-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 4.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-4-solutions" aria-labelledby="week-4-solutions-label" aria-live="polite">
+                <h4 id="week-4-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-4-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-5" class="week-module" data-week="5" aria-labelledby="week-5-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">05</div>
+              <div class="week-module__title-block">
+                <h3 id="week-5-title" class="week-module__title">Applications of Derivatives</h3>
+                <p class="week-module__topics-summary">Maxima &amp; Minima · Mean Value Theorem · Graphing · Optimization · L'Hôpital's Rule</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-5-body" aria-label="Expand Week 5 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-5-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-5-info-label">
+                <h4 id="week-5-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Critical numbers, extrema, closed interval method</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">First and second derivative tests</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Rolle's Theorem, Mean Value Theorem</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Concavity and inflection points</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Slant / horizontal / vertical asymptotes</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Related rates problems</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Optimization strategy</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">L'Hôpital's Rule for indeterminate forms</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§4.1–4.5, §4.8</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-5-gen-label">
+                <h4 id="week-5-gen-label" class="week-module__section-title">Generate Week 5 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w5-topic-select" name="w5-topic" aria-label="Week 5 topic">
+                    <option value="extrema">Find Extrema</option>
+                    <option value="mvt">Mean Value Theorem</option>
+                    <option value="rolle">Rolle's Theorem</option>
+                    <option value="graphing">Graph Analysis</option>
+                    <option value="inflection">Inflection Points</option>
+                    <option value="related-rates">Related Rates</option>
+                    <option value="optimization">Optimization Word Problem</option>
+                    <option value="lhopital">L'Hôpital's Rule</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w5-diff-select" name="w5-difficulty" aria-label="Difficulty for week 5">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week5-btn" aria-label="Generate Week 5 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-5-exercises" aria-labelledby="week-5-exercises-label" aria-live="polite">
+                <h4 id="week-5-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-5-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 5.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-5-solutions" aria-labelledby="week-5-solutions-label" aria-live="polite">
+                <h4 id="week-5-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-5-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-6" class="week-module" data-week="6" aria-labelledby="week-6-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">06</div>
+              <div class="week-module__title-block">
+                <h3 id="week-6-title" class="week-module__title">Integrals &amp; Substitution</h3>
+                <p class="week-module__topics-summary">Antiderivatives · Indefinite Integrals · Basic Formulas · u-Substitution</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-6-body" aria-label="Expand Week 6 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-6-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-6-info-label">
+                <h4 id="week-6-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Antiderivative: $F'(x) = f(x)$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Indefinite integral: $\int f(x)\,dx = F(x) + C$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Power rule for integration</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Integrals of $\sin$, $\cos$, $e^x$, $1/x$, $1/(1+x^2)$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">u-substitution rule</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Trigonometric substitution</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§5.1, §5.2, §5.4, §5.5, §7.3</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-6-gen-label">
+                <h4 id="week-6-gen-label" class="week-module__section-title">Generate Week 6 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w6-topic-select" name="w6-topic" aria-label="Week 6 topic">
+                    <option value="antiderivative">Find Antiderivative</option>
+                    <option value="indefinite">Indefinite Integral</option>
+                    <option value="power-rule-int">Power Rule Integral</option>
+                    <option value="trig-int">Basic Trig Integral</option>
+                    <option value="exp-log-int">Exp / Log Integral</option>
+                    <option value="u-sub">u-Substitution</option>
+                    <option value="trig-sub">Trigonometric Substitution</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w6-diff-select" name="w6-difficulty" aria-label="Difficulty for week 6">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week6-btn" aria-label="Generate Week 6 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-6-exercises" aria-labelledby="week-6-exercises-label" aria-live="polite">
+                <h4 id="week-6-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-6-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 6.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-6-solutions" aria-labelledby="week-6-solutions-label" aria-live="polite">
+                <h4 id="week-6-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-6-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-7" class="week-module" data-week="7" aria-labelledby="week-7-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">07</div>
+              <div class="week-module__title-block">
+                <h3 id="week-7-title" class="week-module__title">Techniques of Integration</h3>
+                <p class="week-module__topics-summary">Integration by Parts · Trigonometric Integrals · Partial Fractions</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-7-body" aria-label="Expand Week 7 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-7-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-7-info-label">
+                <h4 id="week-7-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Integration by parts: $\int u\,dv = uv - \int v\,du$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">LIATE rule for choosing $u$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Reduction formulas for $\int \sin^n x$, $\int \cos^n x$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Product-to-sum identities for mixed trig integrals</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Partial fractions: linear, repeated, quadratic factors</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Long division for improper rational functions</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§7.1, §7.2, §7.4</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-7-gen-label">
+                <h4 id="week-7-gen-label" class="week-module__section-title">Generate Week 7 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w7-topic-select" name="w7-topic" aria-label="Week 7 topic">
+                    <option value="by-parts">Integration by Parts</option>
+                    <option value="by-parts-repeat">Repeated By Parts</option>
+                    <option value="trig-integrals">Trig Integral</option>
+                    <option value="trig-mixed">Mixed Trig Integral</option>
+                    <option value="partial-fractions">Partial Fractions</option>
+                    <option value="long-division">Long Division + Partial Fractions</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w7-diff-select" name="w7-difficulty" aria-label="Difficulty for week 7">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week7-btn" aria-label="Generate Week 7 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-7-exercises" aria-labelledby="week-7-exercises-label" aria-live="polite">
+                <h4 id="week-7-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-7-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 7.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-7-solutions" aria-labelledby="week-7-solutions-label" aria-live="polite">
+                <h4 id="week-7-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-7-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-8" class="week-module" data-week="8" aria-labelledby="week-8-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">08</div>
+              <div class="week-module__title-block">
+                <h3 id="week-8-title" class="week-module__title">Definite Integrals</h3>
+                <p class="week-module__topics-summary">Riemann Sums · Fundamental Theorem of Calculus · Substitution in Definite Integrals · Improper Integrals</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-8-body" aria-label="Expand Week 8 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-8-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-8-info-label">
+                <h4 id="week-8-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Riemann sum: $\sum_{i=1}^n f(c_i)\Delta x$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Definite integral: $\int_a^b f(x)\,dx = \lim_{n \to \infty} \sum f(c_i)\Delta x$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Sigma notation and summation formulas</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">FTC Part 1: $F(x) = \int_a^x f(t)\,dt \Rightarrow F'(x) = f(x)$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">FTC Part 2: $\int_a^b f = F(b) - F(a)$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Substitution in definite integrals: change limits</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Type I improper integrals (infinite intervals)</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Type II improper integrals (discontinuities)</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">p-integral test; comparison test</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§5.1–5.3, §5.5, §7.8</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-8-gen-label">
+                <h4 id="week-8-gen-label" class="week-module__section-title">Generate Week 8 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w8-topic-select" name="w8-topic" aria-label="Week 8 topic">
+                    <option value="riemann">Riemann Sum Limit</option>
+                    <option value="definite-basic">Definite Integral (FTC)</option>
+                    <option value="definite-sub">Definite Integral with Substitution</option>
+                    <option value="area-signed">Signed Area</option>
+                    <option value="ftc-1">FTC Part 1</option>
+                    <option value="improper-inf">Improper Integral (infinite)</option>
+                    <option value="improper-disc">Improper Integral (discontinuity)</option>
+                    <option value="p-integral">p-Integral Convergence</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w8-diff-select" name="w8-difficulty" aria-label="Difficulty for week 8">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week8-btn" aria-label="Generate Week 8 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-8-exercises" aria-labelledby="week-8-exercises-label" aria-live="polite">
+                <h4 id="week-8-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-8-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 8.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-8-solutions" aria-labelledby="week-8-solutions-label" aria-live="polite">
+                <h4 id="week-8-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-8-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-9" class="week-module" data-week="9" aria-labelledby="week-9-title">
+            <header class="week-module__header">
+              <div class="week-module__badge" aria-hidden="true">09</div>
+              <div class="week-module__title-block">
+                <h3 id="week-9-title" class="week-module__title">Applications of Integrals</h3>
+                <p class="week-module__topics-summary">Area Between Curves · Volumes (Disk/Washer/Shells) · Arc Length · Surface Area</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-9-body" aria-label="Expand Week 9 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-9-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-9-info-label">
+                <h4 id="week-9-info-label" class="week-module__section-title">Key Concepts</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list">
+                    <li class="concept-list__item"><span class="concept-list__term">Area between curves: $\int_a^b [f(x) - g(x)]\,dx$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Disk method: $V = \pi \int_a^b [f(x)]^2\,dx$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Washer method: $V = \pi \int_a^b ([f]^2 - [g]^2)\,dx$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Cylindrical shells: $V = 2\pi \int_a^b x f(x)\,dx$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Arc length: $L = \int_a^b \sqrt{1 + [f'(x)]^2}\,dx$</span></li>
+                    <li class="concept-list__item"><span class="concept-list__term">Surface area of revolution: $S = \int 2\pi r\,ds$</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§6.1, §6.2, §6.3, §8.1, §8.2</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-9-gen-label">
+                <h4 id="week-9-gen-label" class="week-module__section-title">Generate Week 9 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w9-topic-select" name="w9-topic" aria-label="Week 9 topic">
+                    <option value="area">Area Between Curves</option>
+                    <option value="area-y">Area (integrating in y)</option>
+                    <option value="volume-disk">Volume — Disk Method</option>
+                    <option value="volume-washer">Volume — Washer Method</option>
+                    <option value="volume-shell">Volume — Shells Method</option>
+                    <option value="arc-length">Arc Length</option>
+                    <option value="surface-area">Surface Area of Revolution</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w9-diff-select" name="w9-difficulty" aria-label="Difficulty for week 9">
+                    <option value="easy">Basic</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="hard">Advanced</option>
+                  </select>
+                  <button class="action-btn action-btn--week" type="button" id="gen-week9-btn" aria-label="Generate Week 9 problem">Generate</button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-9-exercises" aria-labelledby="week-9-exercises-label" aria-live="polite">
+                <h4 id="week-9-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-9-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 9.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-9-solutions" aria-labelledby="week-9-solutions-label" aria-live="polite">
+                <h4 id="week-9-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-9-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article id="week-10" class="week-module week-module--final" data-week="10" aria-labelledby="week-10-title">
+            <header class="week-module__header">
+              <div class="week-module__badge week-module__badge--final" aria-hidden="true">10</div>
+              <div class="week-module__title-block">
+                <h3 id="week-10-title" class="week-module__title">Complex Numbers &amp; Polar Coordinates</h3>
+                <p class="week-module__topics-summary">Complex Operations · Polar Coordinates · Graphing Polar Equations · Integration · Area · Arc Length</p>
+              </div>
+              <button class="week-module__toggle-btn" type="button" aria-expanded="false" aria-controls="week-10-body" aria-label="Expand Week 10 module">
+                <span class="week-toggle-icon" aria-hidden="true">▾</span>
+              </button>
+            </header>
+            <div class="week-module__body" id="week-10-body" hidden>
+              <div class="week-module__info" aria-labelledby="week-10-info-label">
+                <h4 id="week-10-info-label" class="week-module__section-title">Final Topic Checklist</h4>
+                <div class="week-module__info-body">
+                  <ul class="concept-list concept-list--checklist" id="final-checklist">
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Complex numbers: $z = a + bi$, conjugate, modulus</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Complex arithmetic: addition, multiplication, division</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Polar coordinates $(r, \theta)$ and conversion formulas</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Graphing circles, cardioids, roses, lemniscates</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Area in polar: $A = \int \frac{1}{2} r^2\,d\theta$</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Area between polar curves</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Arc length in polar: $L = \int \sqrt{r^2 + (dr/d\theta)^2}\,d\theta$</span></li>
+                    <li class="concept-list__item concept-list__item--check"><span class="concept-list__term">Surface area of polar curves</span></li>
+                  </ul>
+                  <div class="week-module__textbook-ref">
+                    <span class="textbook-ref__book">Stewart, Calculus</span>
+                    <span class="textbook-ref__sections">§10.1–10.4, Appendix H</span>
+                  </div>
+                </div>
+              </div>
+              <div class="week-module__generator" aria-labelledby="week-10-gen-label">
+                <h4 id="week-10-gen-label" class="week-module__section-title">Generate Week 10 Problem</h4>
+                <div class="week-generator-controls">
+                  <select class="week-generator__topic-select" id="w10-topic-select" name="w10-topic" aria-label="Week 10 topic">
+                    <option value="complex-ops">Complex Arithmetic</option>
+                    <option value="complex-modulus">Modulus &amp; Conjugate</option>
+                    <option value="polar-convert">Convert to Polar</option>
+                    <option value="polar-graph">Sketch Polar Curve</option>
+                    <option value="polar-area">Polar Area</option>
+                    <option value="polar-length">Polar Arc Length</option>
+                    <option value="mixed-all">Mixed — All Topics</option>
+                  </select>
+                  <select class="week-generator__difficulty-select" id="w10-diff-select" name="w10-difficulty" aria-label="Difficulty for week 10">
+                    <option value="intermediate">Intermediate</option>
+                    <option value="hard" selected>Advanced (Exam-level)</option>
+                  </select>
+                  <button class="action-btn action-btn--week action-btn--final" type="button" id="gen-week10-btn" aria-label="Generate Week 10 final review problem">
+                    Generate
+                  </button>
+                </div>
+              </div>
+              <div class="week-module__exercises" id="week-10-exercises" aria-labelledby="week-10-exercises-label" aria-live="polite">
+                <h4 id="week-10-exercises-label" class="week-module__section-title">Generated Exercises</h4>
+                <div class="week-exercises-list" id="week-10-exercises-list">
+                  <p class="week-exercises-empty">No exercises generated yet for Week 10.</p>
+                </div>
+              </div>
+              <div class="week-module__solutions" id="week-10-solutions" aria-labelledby="week-10-solutions-label" aria-live="polite">
+                <h4 id="week-10-solutions-label" class="week-module__section-title">Solutions</h4>
+                <div class="week-solutions-list" id="week-10-solutions-list">
+                  <p class="week-solutions-empty">Solutions will appear after generation.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+        <section id="latex-palette" class="latex-palette section" aria-labelledby="latex-palette-title" aria-label="LaTeX notation reference and template palette">
+          <header class="section__header">
+            <h2 id="latex-palette-title" class="section__title">LaTeX / MathJax Notation Reference</h2>
+            <p class="section__subtitle">Structural containers for mathematical typesetting — populated by MathJax at runtime</p>
+          </header>
+          <div class="latex-palette__grid">
+            <div class="latex-template-group" id="latex-limits" aria-labelledby="latex-limits-label">
+              <h3 id="latex-limits-label" class="latex-template-group__title">Limits</h3>
+              <div class="latex-template" data-latex-type="limit-basic" aria-label="Basic limit template">
+                <span class="latex-template__label">Basic Limit</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="limit-basic">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="limit-lhopital" aria-label="L'Hopital limit template">
+                <span class="latex-template__label">L'Hôpital's Rule</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="limit-lhopital">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="limit-sandwich" aria-label="Sandwich theorem template">
+                <span class="latex-template__label">Sandwich Theorem</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="limit-sandwich">
+                </div>
+              </div>
+            </div>
+            <div class="latex-template-group" id="latex-derivatives" aria-labelledby="latex-derivatives-label">
+              <h3 id="latex-derivatives-label" class="latex-template-group__title">Derivatives</h3>
+              <div class="latex-template" data-latex-type="deriv-def" aria-label="Derivative definition template">
+                <span class="latex-template__label">Definition of Derivative</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="deriv-def">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="chain-rule" aria-label="Chain rule template">
+                <span class="latex-template__label">Chain Rule</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="chain-rule">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="implicit" aria-label="Implicit differentiation template">
+                <span class="latex-template__label">Implicit Differentiation</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="implicit">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="tangent-line" aria-label="Tangent line equation template">
+                <span class="latex-template__label">Tangent Line</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="tangent-line">
+                </div>
+              </div>
+            </div>
+            <div class="latex-template-group" id="latex-integrals" aria-labelledby="latex-integrals-label">
+              <h3 id="latex-integrals-label" class="latex-template-group__title">Integrals</h3>
+              <div class="latex-template" data-latex-type="indefinite" aria-label="Indefinite integral template">
+                <span class="latex-template__label">Indefinite Integral</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="indefinite">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="definite" aria-label="Definite integral template">
+                <span class="latex-template__label">Definite Integral</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="definite">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="by-parts" aria-label="Integration by parts template">
+                <span class="latex-template__label">Integration by Parts</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="by-parts">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="u-sub" aria-label="u-substitution template">
+                <span class="latex-template__label">u-Substitution</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="u-sub">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="improper" aria-label="Improper integral template">
+                <span class="latex-template__label">Improper Integral</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="improper">
+                </div>
+              </div>
+            </div>
+            <div class="latex-template-group" id="latex-applications" aria-labelledby="latex-applications-label">
+              <h3 id="latex-applications-label" class="latex-template-group__title">Applications</h3>
+              <div class="latex-template" data-latex-type="area-curves" aria-label="Area between curves template">
+                <span class="latex-template__label">Area Between Curves</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="area-curves">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="volume-disk" aria-label="Disk method volume template">
+                <span class="latex-template__label">Volume (Disk)</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="volume-disk">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="volume-washer" aria-label="Washer method volume template">
+                <span class="latex-template__label">Volume (Washer)</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="volume-washer">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="arc-length" aria-label="Arc length template">
+                <span class="latex-template__label">Arc Length</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="arc-length">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="surface-area" aria-label="Surface area template">
+                <span class="latex-template__label">Surface Area</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="surface-area">
+                </div>
+              </div>
+            </div>
+            <div class="latex-template-group" id="latex-polar" aria-labelledby="latex-polar-label">
+              <h3 id="latex-polar-label" class="latex-template-group__title">Polar &amp; Complex</h3>
+              <div class="latex-template" data-latex-type="complex-number" aria-label="Complex number template">
+                <span class="latex-template__label">Complex Number</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="complex-number">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="polar-conversion" aria-label="Polar conversion template">
+                <span class="latex-template__label">Polar Conversion</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="polar-conversion">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="polar-area" aria-label="Polar area template">
+                <span class="latex-template__label">Polar Area</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="polar-area">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="polar-arc-length" aria-label="Polar arc length template">
+                <span class="latex-template__label">Polar Arc Length</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="polar-arc-length">
+                </div>
+              </div>
+            </div>
+            <div class="latex-template-group" id="latex-theorems" aria-labelledby="latex-theorems-label">
+              <h3 id="latex-theorems-label" class="latex-template-group__title">Theorems</h3>
+              <div class="latex-template" data-latex-type="ivt" aria-label="Intermediate value theorem template">
+                <span class="latex-template__label">Intermediate Value Theorem</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="ivt">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="mvt" aria-label="Mean value theorem template">
+                <span class="latex-template__label">Mean Value Theorem</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="mvt">
+                </div>
+              </div>
+              <div class="latex-template" data-latex-type="ftc" aria-label="Fundamental theorem of calculus template">
+                <span class="latex-template__label">Fundamental Theorem of Calculus</span>
+                <div class="latex-template__display math-content" data-mathjax-placeholder="ftc">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer id="site-footer" class="site-footer" role="contentinfo">
+        <div class="site-footer__body">
+          <div class="site-footer__left">
+            <p class="site-footer__institution">
+              <strong>Astana IT University</strong> · School of AI &amp; Data Science
+            </p>
+            <p class="site-footer__course">
+              Calculus I · Spring 2026 · Instructor: TBD
+            </p>
+            <p class="site-footer__textbook">
+              Based on: Stewart, <em>Calculus: Early Transcendentals</em>
+            </p>
+          </div>
+          <div class="site-footer__right">
+            <nav class="site-footer__nav" aria-label="Footer navigation">
+              <a href="#dashboard" class="site-footer__nav-link">Dashboard</a>
+              <a href="#generator-panel" class="site-footer__nav-link">Generator</a>
+              <a href="#exam-mode" class="site-footer__nav-link">Exam Mode</a>
+              <a href="#topic-modules" class="site-footer__nav-link">Modules</a>
+            </nav>
+            <p class="site-footer__version">
+              <span id="footer-version">v1.0</span> · Problem Generator · 2026
+            </p>
+          </div>
+        </div>
+        <div class="site-footer__bottom" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <p class="site-footer__disclaimer">
+            Generated problems are for practice only. Always verify answers with course materials.
+          </p>
+          <p style="font-size:0.7rem; color:#64748B; white-space:nowrap;">
+            Made by <strong style="color:#94A3B8;">Bakdaulet Sotsial</strong> ·
+            <a href="https://instagram.com/smrbruh" target="_blank" rel="noopener"
+               style="color:#06B6D4; text-decoration:none;">
+              @smrbruh
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true" aria-label="Notifications">
+  </div>
+  <div id="problem-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-body" hidden>
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__panel">
+      <header class="modal__header">
+        <h2 id="modal-title" class="modal__title">Problem Details</h2>
+        <button id="modal-close-btn" class="modal__close-btn" type="button" aria-label="Close dialog">×</button>
+      </header>
+      <div class="modal__body" id="modal-body">
+      </div>
+      <footer class="modal__footer">
+        <button class="action-btn action-btn--ghost" id="modal-cancel-btn" type="button">Close</button>
+        <button class="action-btn action-btn--primary" id="modal-confirm-btn" type="button">Bookmark</button>
+      </footer>
+    </div>
+  </div>
+  <button id="back-to-top-btn" class="back-to-top-btn" type="button" aria-label="Back to top" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
+  <script src="script.js" defer></script>
+</body>
+</html>
